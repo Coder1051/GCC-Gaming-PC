@@ -1,0 +1,56 @@
+.nav-item {
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Search Box */
+.angled-search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.angled-search-box {
+  position: relative;
+  background: #2a2a2a;
+  padding: 12px 60px 12px 20px;
+  clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.angled-search-input {
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.angled-search-input::placeholder {
+  color: #888;
+}
+
+.angled-search-button {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #52525b;
+  border: none;
+  color: #cccccc;
+  padding: 12.5px 15.2px;
+  cursor: pointer;
+}
+
+/* Active navbar styling */
+.nav-item.active {
+  color: #BA86FF !important;
+  font-weight: bold;
+}
+.nav-item.active.hot-deals {
+  color: red !important;
+  font-weight: bold;
+}

@@ -1,0 +1,378 @@
+.delivery-header {
+    background-color: #1D1D20;
+    color: #C9C9CF;
+    font-size:14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.delivery-header a {
+    color: inherit;
+}
+
+.location {
+    opacity: 0.8;
+    color: #C9C9CF;
+}
+
+.dropdown-toggle {
+    background: transparent;
+    color: #C9C9CF;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.dropdown-menu {
+    background-color: #1D1D20;
+    border: 1px solid #333;
+}
+
+.container-fluid.px-60 {
+    padding-left: 60px;
+    padding-right: 60px;
+    max-width: 100%;
+}
+
+.delivery-info-container {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    gap: 16px;
+    width: 812px;
+}
+
+.language{
+    color: #C9C9CF;
+}
+.language:hover{
+    color:rebeccapurple;
+    background-color: none;
+}
+
+.adc-lang{
+    color: #C9C9CF;
+    background-color: #1D1D20;
+}
+.adc-lang:hover{
+    color: #C9C9CF;
+    background-color: #1D1D20;
+}
+
+.services-container {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    gap: 0;
+    width: 812px;
+    justify-content: center;
+}
+
+.deliver-to, .location, .phone {
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.flag-img {
+    height: 18px;
+    width: auto;
+}
+
+.service-icon {
+    margin-right: 4px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+/* Add these to your existing CSS */
+.language .dropdown-toggle {
+    color: #C9C9CF !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.language .dropdown-toggle:hover {
+    color: white !important; /* White on hover */
+}
+
+.language .dropdown-menu {
+    background-color: #1D1D20;
+    border: 1px solid #333;
+}
+
+.language .dropdown-item {
+    color: #C9C9CF;
+}
+
+/* Enhanced Responsive Design - All Devices */
+
+/* Extra Large Devices (1400px and up) */
+@media (min-width: 1400px) {
+    .container-fluid.px-60 {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+/* Large Devices (1200px and up) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+    .container-fluid.px-60 {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    .responsive-content .gap-4 {
+        gap: 1rem !important;
+    }
+    
+    .services-wrapper .gap-3 {
+        gap: 0.75rem !important;
+    }
+}
+
+/* Medium Devices (992px and up) */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .container-fluid.px-60 {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    .responsive-content {
+        gap: 0.75rem !important;
+    }
+    
+    .delivery-info-wrapper,
+    .services-wrapper {
+        gap: 0.5rem !important;
+    }
+    
+    .deliver-to, .location, .phone, .express, .easy-returns, .free-shipping {
+        font-size: 13px;
+    }
+}
+
+/* Small Devices (768px and up) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .container-fluid.px-60 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .responsive-content {
+        justify-content: center;
+        gap: 0.5rem !important;
+    }
+    
+    .delivery-info-wrapper {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .services-wrapper {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem !important;
+    }
+    
+    .language-wrapper {
+        justify-content: center !important;
+        margin-top: 0.5rem;
+    }
+    
+    .deliver-to, .location, .phone, .express, .easy-returns, .free-shipping {
+        font-size: 12px;
+    }
+}
+
+/* Extra Small Devices (576px and up) */
+@media (max-width: 767px) and (min-width: 576px) {
+    .container-fluid.px-60 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .responsive-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem !important;
+    }
+    
+    .delivery-info-wrapper {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem !important;
+    }
+    
+    .services-wrapper {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem !important;
+    }
+    
+    .language-wrapper {
+        justify-content: center !important;
+    }
+    
+    .deliver-to, .location, .phone, .express, .easy-returns, .free-shipping {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+    
+    .flag-img {
+        height: 16px;
+    }
+    
+    .service-icon {
+        font-size: 10px;
+    }
+}
+
+/* Mobile Devices (up to 575px) */
+@media (max-width: 575px) {
+    .container-fluid.px-60 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .delivery-header {
+        padding: 0.5rem 0;
+    }
+    
+    .responsive-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem !important;
+    }
+    
+    .delivery-info-wrapper {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem !important;
+    }
+    
+    .services-wrapper {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem !important;
+    }
+    
+    .services-wrapper span {
+        display: flex;
+        align-items: center;
+        padding: 2px 4px;
+    }
+    
+    .language-wrapper {
+        justify-content: center !important;
+        margin-top: 0.25rem;
+    }
+    
+    .deliver-to, .location, .phone, .express, .easy-returns, .free-shipping {
+        font-size: 10px;
+        white-space: nowrap;
+    }
+    
+    .flag-img {
+        height: 14px;
+    }
+    
+    .service-icon {
+        font-size: 9px;
+        margin-right: 2px;
+    }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+    .container-fluid.px-60 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .delivery-info-wrapper,
+    .services-wrapper {
+        gap: 0.125rem !important;
+    }
+    
+    .deliver-to, .location, .phone, .express, .easy-returns, .free-shipping {
+        font-size: 9px;
+    }
+    
+    .flag-img {
+        height: 12px;
+    }
+    
+    .service-icon {
+        font-size: 8px;
+        margin-right: 1px;
+    }
+    
+    .services-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem !important;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .delivery-header {
+        padding: 0.25rem 0;
+    }
+    
+    .responsive-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .delivery-info-wrapper,
+    .services-wrapper {
+        gap: 0.5rem !important;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .flag-img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Existing responsive adjustments (kept for compatibility) */
+@media (max-width: 1200px) {
+    .delivery-info-container,
+    .services-container {
+        width: 100%;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-fluid.px-60 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .delivery-info-container,
+    .services-container {
+        gap: 10px;
+        justify-content: center;
+    }
+}
