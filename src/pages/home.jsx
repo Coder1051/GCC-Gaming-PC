@@ -1,8 +1,8 @@
-import React from 'react'
+import ImgSec from '../components/subcomponents/imgsec'
 const Home = () => {
   return (
-    <div>
-      Content for Home Page Here
+    <div style={{backgroundColor:'black'}} >
+      <ImgSec />
     </div>
   )
 }

@@ -1,14 +1,21 @@
 import { Container, Navbar, Nav, Form, Button } from 'react-bootstrap'
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link,useNavigate  } from 'react-router-dom';
 import { FaSearch, FaUser, FaShoppingCart, FaBars } from 'react-icons/fa';
 import Header from './header';
 import './css/navbar.css'
 
 function Navigation() {
   const location = useLocation();
+   const navigate = useNavigate(); 
   // active navbar 
   const isActive = (path) => {
     return location.pathname === path;
+  };
+  const handleLogoClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1);
   };
 
   return (
@@ -21,9 +28,9 @@ function Navigation() {
       )}
       {/* Navbar */}
       <Navbar expand="lg" style={{ backgroundColor: 'black', color: 'white' }}>
-        <Container fluid='lg'>
+        <Container fluid='md'>
           <Navbar.Brand as={Link} to="/">
-            <img src="./images/gcclogo.png" alt="logo" width={100} />
+            <img src="./images/gcclogo.png"  alt="logo" width={60} onClick={handleLogoClick}  />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <FaBars style={{ color: 'white' }} />
@@ -68,7 +75,7 @@ function Navigation() {
             </Nav>
 
             {/* Search div */}
-            <div className="angled-search-container">
+            <div className="angled-search-container me-2 ">
               <div className="angled-search-box">
                 <input
                   type="search"
