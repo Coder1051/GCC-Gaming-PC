@@ -1,0 +1,12 @@
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
+}
+
+.btn-primary {
+  background-color: #6c2bd9;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #571fbd;
+}

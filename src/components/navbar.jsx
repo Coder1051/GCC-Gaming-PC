@@ -15,7 +15,7 @@ function Navigation() {
     navigate("/");
     setTimeout(() => {
       window.location.reload();
-    }, 1);
+    }, 5);
   };
 
   return (

@@ -1,0 +1,300 @@
+/* prodcomp.css */
+
+/* Product Showcase Container Styles */
+.product-showcase-container {
+  background-color: #1a1a1a !important;
+  min-height: 100vh;
+}
+
+.product-showcase-container * {
+  box-sizing: border-box;
+}
+
+/* Tab Navigation Styles */
+.product-showcase-container .showcase-tabs {
+  display: flex;
+  gap: 2rem;
+}
+
+.product-showcase-container .tab-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.product-showcase-container .tab-btn.active {
+  color: #ffffff;
+}
+
+.product-showcase-container .tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #8b5cf6;
+}
+
+/* More Products Button */
+.product-showcase-container .more-products-btn {
+  border-color: #4b5563;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Products Container */
+.product-showcase-container .products-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.product-showcase-container .products-container::-webkit-scrollbar {
+  display: none;
+}
+
+.product-showcase-container .product-card-wrapper {
+  width: 16rem;
+  min-width: 16rem;
+}
+
+/* Carousel Navigation Buttons */
+.product-showcase-container .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: #374151;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.product-showcase-container .carousel-btn-left {
+  left: -1rem;
+}
+
+.product-showcase-container .carousel-btn-right {
+  right: -1rem;
+}
+
+/* =========================== */
+/* PRODUCT CARD STYLES */
+/* =========================== */
+
+.product-card-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Border with cut corners */
+.product-card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:#303030;
+  clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+  z-index: 1;
+}
+
+/* Main content with cut corners */
+.product-card-content {
+  position: relative;
+  background-color: #1D1D20;
+  margin: 2px;
+  clip-path: polygon(13px 0%, 100% 0%, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0% 100%, 0% 13px);
+  z-index: 2;
+  color: white;
+}
+
+/* Image Section */
+.product-image-section {
+  position: relative;
+  padding: 15px;
+  background-color:#303036 ;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* TOP DEAL Badge - Circular */
+.top-deal-badge {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 135px;
+  height: 36px;
+  padding: 8px 16px 8px 12px;
+  background:#ff1744;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.top-deal-badge span {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* BEST SELLER Badge - Rectangular */
+.best-seller-badge {
+  position: absolute;
+  top: 0;
+  left: 10;
+  width: 88.2%;
+  background:#ff1744;
+  padding: 0px;
+  text-align: center;
+  z-index: 10;
+}
+
+.best-seller-badge span {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Discount Badge - Bottom */
+.discount-badge {
+  position: absolute;
+  width: 88.2%;
+  bottom: 0;
+  right: 10;
+  background: #16A34A;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Product Details Section */
+.product-details {
+  padding: 20px;
+  background-color:#303036;
+}
+
+.product-title {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  min-height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Price Section */
+.price-section {
+  margin-bottom: 15px;
+}
+
+.current-price {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.price-amount {
+  color: #DCC1FF;
+}
+
+.original-price {
+  color: #888;
+  font-size: 14px;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+/* Delivery Info */
+.delivery-info {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.delivery-date {
+  color: #4ADE80;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-card-border {
+    clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+  }
+  
+  .product-card-content {
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  }
+  
+  .top-deal-badge {
+    width: 50%;
+    height: 20px;
+  }
+  
+  .top-deal-badge span {
+    font-size: 13px;
+  }
+  
+  .best-seller-badge span {
+    font-size: 8px;
+  }
+  
+  .discount-badge {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card-border {
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  }
+  
+  .product-card-content {
+    clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+  }
+  
+  .product-details {
+    padding: 15px;
+  }
+  
+  .product-title {
+    font-size: 12px;
+    min-height: 35px;
+  }
+  
+  .current-price {
+    font-size: 16px;
+  }
+}
