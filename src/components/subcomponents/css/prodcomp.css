@@ -2,8 +2,7 @@
 
 /* Product Showcase Container Styles */
 .product-showcase-container {
-  background-color: #1a1a1a !important;
-  min-height: 100vh;
+  min-height: 612px;
 }
 
 .product-showcase-container * {
@@ -74,7 +73,7 @@
   height: 2.5rem;
   border-radius: 50%;
   border: none;
-  background-color: #374151;
+  background-color:black;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -147,7 +146,8 @@
   background:#ff1744;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+   clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
   z-index: 10;
 }
 
@@ -165,6 +165,7 @@
   top: 0;
   left: 10;
   width: 88.2%;
+  height: 24px;
   background:#ff1744;
   padding: 0px;
   text-align: center;
@@ -201,7 +202,7 @@
   background-color:#303036;
 }
 
-.product-title {
+.product-titles {
   color: #ffffff;
   font-size: 14px;
   margin-bottom: 15px;
@@ -289,7 +290,7 @@
     padding: 15px;
   }
   
-  .product-title {
+  .product-titles {
     font-size: 12px;
     min-height: 35px;
   }

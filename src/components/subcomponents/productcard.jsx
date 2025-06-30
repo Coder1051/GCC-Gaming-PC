@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
             {/* Top Deal Badge - Circular */}
             {isTopDeal && (
               <div className="top-deal-badge">
-                <span>TOP DEAL</span>
+                <span><img src="./images/alarm.png" alt="Alarm logo" width={20} />  HOT DEAL</span>
               </div>
             )}
             
@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
 
           {/* Product Details */}
           <div className='product-details'>
-            <h6 className="product-title">{product.name}</h6>
+            <h6 className="product-titles">{product.name}</h6>
             <div className="price-section">
               <h3 className="current-price">
                 US $ <span className="price-amount">{product.price}</span>

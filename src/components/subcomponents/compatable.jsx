@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card } from 'react-bootstrap';
-import './css/game.css'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const games = [
   {
@@ -103,96 +102,221 @@ const games = [
 ];
 
 const GameCompatible = () => {
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
 
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  // Inline styles
+  const containerStyle = {
+    backgroundColor: 'black',
+    color: 'white',
+    padding: '0',
+    height:'886.0999755859375px'
+  };
+
+  const headerStyle = {
+    fontFamily: 'Tomorrow',
+    fontSize: '24px',
+    fontWeight: '600',
+    lineHeight: '36px',
+    margin: 0
+  };
+
+  const moreBtnStyle = {
+    background: 'black',
+    border: '2px solid',
+    borderImage: 'linear-gradient(to right, #8b5cf6, white) 1',
+    color: 'white',
+    padding: '8px 16px',
+    clipPath: 'polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px)'
+  };
+
+  const scrollContainerStyle = {
+    display: 'flex',
+    overflowX: 'auto',
+    scrollBehavior: 'smooth',
+    gap: '1rem',
+    padding: '0 3rem',
+    // Hide scrollbar
+    msOverflowStyle: 'none',
+    scrollbarWidth: 'none',
+    WebkitScrollbar: { display: 'none' }
+  };
+
+  const cardStyle = {
+    backgroundColor: '#1d1d20',
+    border: 'none',
+    minWidth: '16rem',
+    maxWidth: '16rem'
+  };
+
+  const navBtnStyle = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    backgroundColor: '#2a2a2a',
+    border: 'none',
+    color: 'white',
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+    cursor: 'pointer'
+  };
+
+  const compatibleBtnStyle = {
+    backgroundColor: '#3C1761',
+    border: '2px solid #BA86FF',
+    color: 'white',
+    fontSize: '12px',
+    fontWeight: '600'
+  };
+
+  const specContainerStyle = {
+    backgroundColor: '#2a2a2a',
+    borderRadius: '6px',
+    padding: '0.75rem'
+  };
+
+  const specSectionStyle = {
+    backgroundColor: '#303036',
+    padding: '0.5rem',
+    marginBottom: '0.5rem',
+    borderRadius: '4px'
   };
 
   return (
-    <div className=" text-white p-4" style={{ backgroundColor: 'black' }}>
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h5>GAME COMPATIBLE PC'S</h5>
-        <button
-          className="cut-corner-btn btn mb-2 text-white"
-          style={{
-            borderWidth: '2px',
-            borderStyle: 'solid',
-            borderImage: 'linear-gradient(to right, purple, white) 1',
-            backgroundColor: 'black'
-          }}
-        >
-          MORE GAMES →
-        </button>
-      </div>
+    <Container fluid="md" className='mt-3' style={containerStyle}>
+      {/* Header */}
+      <Row className="align-items-center ">
+        <Col>
+          <h2 style={headerStyle}>GAME COMPATIBLE PC'S</h2>
+        </Col>
+        <Col xs="auto">
+          <Button style={moreBtnStyle}>
+            MORE GAMES <FaArrowRight className="ms-2" />
+          </Button>
+        </Col>
+      </Row>
 
-      <div className="position-relative">
+      {/* Games Carousel */}
+      <div style={{ position: 'relative' }}>
+        {/* Left Navigation */}
         <button
-          className="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-3"
+          style={{ ...navBtnStyle, left: '10px' }}
           onClick={scrollLeft}
         >
-          ‹
+          <FaChevronLeft />
         </button>
 
+        {/* Scrollable Container */}
         <div
-          className="d-flex overflow-auto px-5 hide-scrollbar"
           ref={scrollRef}
-          style={{ scrollBehavior: 'smooth' }}
+          style={{
+            ...scrollContainerStyle,
+            WebkitOverflowScrolling: 'touch'
+          }}
+          className="hide-scrollbar"
         >
           {games.map((game) => (
-            <div
-              className="card  text-white me-3 flex-shrink-0"
-              style={{ width: '16rem', backgroundColor: '#1d1d20' }}
-              key={game.id}
-            >
-              <img src={game.image} className="card-img-top" alt={game.title} />
-              <div className="card-body">
-                <h6 className="card-title">{game.title}</h6>
-                <p className="card-text small">{game.studio} • {game.year}</p>
-                <button
-                  className="btn w-100 mb-2"
-                  style={{
-                    backgroundColor: '#3C1761',
-                    border: '2px solid #BA86FF',
-                    color: 'white'
-                  }}
-                >
-                  FIND COMPATIBLE PC'S <i className="bi bi-arrow-right"></i>
-                </button>
-                <div className="bg-dark p-2 rounded">
-                  <div style={{ backgroundColor: '#303036' }}>
-                    <p className="mb-1 text-warning small px-2">Minimum</p>
-                    <p className="mb-1 small px-2">GPU: {game.specs.minimum.gpu}</p>
-                    <p className="mb-2 small px-2">CPU: {game.specs.minimum.cpu}</p>
+            <Card key={game.id} text="white" style={cardStyle}>
+              <Card.Img
+                variant="top"
+                src={game.image}
+                alt={game.title}
+                style={{ height: '200px', objectFit: 'cover' }}
+              />
+              <Card.Body>
+                <Card.Title style={{ fontSize: '1rem', fontWeight: '600' }}>
+                  {game.title}
+                </Card.Title>
+                <Card.Text style={{ fontSize: '0.875rem', color: '#aaa' }}>
+                  {game.studio} • {game.year}
+                </Card.Text>
+
+                <Button style={compatibleBtnStyle} className="w-100 mb-3">
+                  FIND COMPATIBLE PC'S <FaArrowRight className="ms-1" />
+                </Button>
+
+                {/* Specs */}
+                <div style={specContainerStyle}>
+                  {/* Minimum */}
+                  <div style={specSectionStyle}>
+                    <p style={{ color: '#ffc107', fontSize: '0.75rem', margin: '0 0 0.25rem 0', fontWeight: '600' }}>
+                      Minimum
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: '0 0 0.25rem 0' }}>
+                      GPU: {game.specs.minimum.gpu}
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: 0 }}>
+                      CPU: {game.specs.minimum.cpu}
+                    </p>
                   </div>
-                  <div style={{ backgroundColor: '#303036' }}>
-                    <p className="mb-1 text-primary small px-2">Recommended</p>
-                    <p className="mb-1 small px-2">GPU: {game.specs.recommended.gpu}</p>
-                    <p className="mb-2 small px-2">CPU: {game.specs.recommended.cpu}</p>
+
+                  {/* Recommended */}
+                  <div style={specSectionStyle}>
+                    <p style={{ color: '#007bff', fontSize: '0.75rem', margin: '0 0 0.25rem 0', fontWeight: '600' }}>
+                      Recommended
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: '0 0 0.25rem 0' }}>
+                      GPU: {game.specs.recommended.gpu}
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: 0 }}>
+                      CPU: {game.specs.recommended.cpu}
+                    </p>
                   </div>
-                  <div style={{ backgroundColor: '#303036' }}>
-                    <p className="mb-1 text-info small px-2">Ultra</p>
-                    <p className="mb-1 small px-2">GPU: {game.specs.ultra.gpu}</p>
-                    <p className="small px-2">CPU: {game.specs.ultra.cpu}</p>
+
+                  {/* Ultra */}
+                  <div style={{ ...specSectionStyle, marginBottom: 0 }}>
+                    <p style={{ color: '#17a2b8', fontSize: '0.75rem', margin: '0 0 0.25rem 0', fontWeight: '600' }}>
+                      Ultra
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: '0 0 0.25rem 0' }}>
+                      GPU: {game.specs.ultra.gpu}
+                    </p>
+                    <p style={{ fontSize: '0.75rem', margin: 0 }}>
+                      CPU: {game.specs.ultra.cpu}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Card.Body>
+            </Card>
           ))}
         </div>
 
+        {/* Right Navigation */}
         <button
-          className="btn btn-dark position-absolute end-0 top-50 translate-middle-y z-3"
+          style={{ ...navBtnStyle, right: '10px' }}
           onClick={scrollRight}
         >
-          ›
+          <FaChevronRight />
         </button>
       </div>
-    </div>
+
+      {/* Hide scrollbar CSS */}
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+    </Container>
   );
 };
 

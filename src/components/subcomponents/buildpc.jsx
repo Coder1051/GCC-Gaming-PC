@@ -7,7 +7,7 @@ const BuildYourPC = () => {
   return (
     <Container fluid="md" className="my-5 px-3" style={{backgroundColor:'black'}}>
       <div
-        className="container-fluid py-5"
+        className="container-fluid"
         style={{
           backgroundColor: "#1d1d20",
           border: "3px solid grey",

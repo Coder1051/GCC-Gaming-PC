@@ -1,4 +1,3 @@
-// prodcont.jsx
 import React, { useState, useRef } from 'react';
 import ProductCard from './productcard';
 import './css/prodcomp.css';
@@ -68,7 +67,7 @@ const sampleProducts = [
   }
 ];
 
-const ProductShowcase = () => {
+const AccessoriesComponent = () => {
   const [activeTab, setActiveTab] = useState('hot-deals');
   const scrollContainerRef = useRef(null);
 
@@ -92,23 +91,12 @@ const ProductShowcase = () => {
 
   return (
     <Container fluid='md'>
-      <div className="product-showcase-container bg-black text-white py-5">
-        <div className="container-fluid px-4">
+      <div className="product-showcase-container bg-black text-white">
+        <div className="container-fluid">
           {/* Header with tabs and more products button */}
-          <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
             <div className="showcase-tabs">
-              <button
-                className={`tab-btn ${activeTab === 'hot-deals' ? 'active' : ''}`}
-                onClick={() => setActiveTab('hot-deals')}
-              >
-                HOT DEALS
-              </button>
-              <button
-                className={`tab-btn ${activeTab === 'new-arrivals' ? 'active' : ''}`}
-                onClick={() => setActiveTab('new-arrivals')}
-              >
-                NEW ARRIVALS
-              </button>
+            <h2 style={{fontFamily:'Tomorrow',width:'198px',height:'36px'}} >ACCESSORIES</h2>
             </div>
 
             <button className="btn btn-outline-light more-products-btn">
@@ -196,4 +184,4 @@ const ProductShowcase = () => {
   );
 };
 
-export default ProductShowcase;
+export default AccessoriesComponent;

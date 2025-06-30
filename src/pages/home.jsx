@@ -4,6 +4,7 @@ import ImgSec from '../components/subcomponents/imgsec'
 import ProductShowcase from '../components/subcomponents/prodcomp'
 import ProductGrid from '../components/subcomponents/prodgrid'
 import BuildYourPC from '../components/subcomponents/buildpc'
+import AccessoriesComponent from '../components/subcomponents/accessoriesComp'
 const Home = () => {
   return (
     <div style={{backgroundColor:'black'}} >
@@ -12,6 +13,7 @@ const Home = () => {
       <ProductGrid/>
       <GameCompatible/>
       <BuildYourPC/>
+      <AccessoriesComponent/>
       <BrandsAndReviews/>
       
     </div>

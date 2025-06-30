@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './css/brands&reviews.css';
+import { FaChevronLeft, FaChevronRight, FaRegStar, FaStar } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 const BrandsAndReviews = () => {
@@ -18,7 +21,7 @@ const BrandsAndReviews = () => {
       id: 1,
       author: 'Ali Ayub',
       date: '2024-09-16',
-      rating: 5,
+      rating: 4,
       text: 'They are trustworthy and good prices. And they saved me like 200 riyals from custom fees by making the value of the gpu 700. One thing I would suggest is to improve delivery speed.',
       avatar: 'A'
     },
@@ -42,9 +45,17 @@ const BrandsAndReviews = () => {
       id: 4,
       author: 'Mohammed Ali',
       date: '2024-09-13',
-      rating: 4,
+      rating: 5,
       text: 'Great service and fast delivery. The products are authentic and prices are competitive. Highly recommended for tech enthusiasts.',
-      avatar: 'M'
+      avatar: 'A'
+    },
+    {
+      id: 5,
+      author: 'Hamza Maqsoood',
+      date: '2025-01-13',
+      rating: 5,
+      text: 'Great service and fast delivery.',
+      avatar: 'H'
     }
   ];
 
@@ -57,7 +68,7 @@ const BrandsAndReviews = () => {
         // const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=YOUR_PLACE_ID&fields=reviews,rating,user_ratings_total&key=YOUR_API_KEY`);
         // const data = await response.json();
         // setReviews(data.result.reviews);
-        
+
         // For now, using sample data
         setTimeout(() => {
           setReviews(sampleReviews);
@@ -75,13 +86,13 @@ const BrandsAndReviews = () => {
 
   // Navigation functions
   const nextReview = () => {
-    setCurrentReviewIndex((prev) => 
+    setCurrentReviewIndex((prev) =>
       prev === reviews.length - 3 ? 0 : prev + 1
     );
   };
 
   const prevReview = () => {
-    setCurrentReviewIndex((prev) => 
+    setCurrentReviewIndex((prev) =>
       prev === 0 ? reviews.length - 3 : prev - 1
     );
   };
@@ -95,7 +106,7 @@ const BrandsAndReviews = () => {
   // Render star rating
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
-      <i 
+      <i
         key={index}
         className={`fas fa-star ${index < rating ? 'filled' : 'empty'}`}
       />
@@ -103,7 +114,7 @@ const BrandsAndReviews = () => {
   };
 
   // Calculate average rating
-  const averageRating = reviews.length > 0 
+  const averageRating = reviews.length > 0
     ? (reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length).toFixed(1)
     : 0;
 
@@ -119,35 +130,25 @@ const BrandsAndReviews = () => {
               <h2 className="section-title">EXPLORE BY BRAND</h2>
             </div>
             <div className="brands-container">
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/amd')}>
-                <img src="/images/brands/amd-logo.png" alt="AMD" className="brand-logo" />
-                <span className="brand-name">AMD</span>
-              </div>
-              
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/logitech')}>
-                <img src="/images/brands/logitech-logo.png" alt="Logitech" className="brand-logo" />
-                <span className="brand-name">logitech</span>
-              </div>
-              
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/nvidia')}>
-                <img src="/images/brands/nvidia-logo.png" alt="NVIDIA" className="brand-logo" />
-                <span className="brand-name">NVIDIA</span>
-              </div>
-              
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/amd')}>
-                <img src="/images/brands/amd-logo.png" alt="AMD" className="brand-logo" />
-                <span className="brand-name">AMD</span>
-              </div>
-              
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/intel')}>
-                <img src="/images/brands/intel-logo.png" alt="Intel" className="brand-logo" />
-                <span className="brand-name">intel</span>
-              </div>
-              
-              <div className="brand-box" onClick={() => handleBrandClick('/brands/corsair')}>
-                <img src="/images/brands/corsair-logo.png" alt="Corsair" className="brand-logo" />
-                <span className="brand-name">CORSAIR</span>
-              </div>
+              <Link className="brand-box" to='/brands/amd'>
+                <img src="/images/brand1.png" alt="AMD" className="brand-logo" />
+              </Link>
+
+              <Link className="brand-box" to='/brands/logitech'>
+                <img src="/images/brand2.png" alt="Logitech" className="brand-logo" />
+              </Link>
+
+              <Link className="brand-box" to='/brands/nvidia'>
+                <img src="/images/brand3.png" alt="NVIDIA" className="brand-logo" />
+              </Link>
+
+              <Link className="brand-box" to='/brands/intel'>
+                <img src="/images/brand4.png" alt="Intel" className="brand-logo" />
+              </Link>
+
+              <Link className="brand-box" to='/brands/corsair'>
+                <img src="/images/brand5.png" alt="Corsair" className="brand-logo" />
+              </Link>
             </div>
           </Col>
         </Row>
@@ -158,8 +159,10 @@ const BrandsAndReviews = () => {
             <div className="reviews-container">
               {/* Google Rating Info */}
               <div className="google-rating-info">
-                <div className="google-logo">
-                  <img src="/images/google-logo.png" alt="Google" />
+                <div style={{ fontSize: "30px" }} className="google-logo">
+                  {/* <img src="" alt="Google" /> */}
+                  {/* <FaGoogle /> */}
+                  G O O G L E
                 </div>
                 <div className="rating-details">
                   <div className="rating-score">{averageRating}</div>
@@ -167,19 +170,19 @@ const BrandsAndReviews = () => {
                     {renderStars(Math.round(averageRating))}
                   </div>
                   <div className="rating-text">
-                    Rating based on {totalReviews} reviews
+                    Rating based on <span style={{ color: '#7AA4F5' }} >{totalReviews} reviews</span>
                   </div>
                 </div>
               </div>
 
               {/* Reviews Carousel */}
               <div className="reviews-carousel">
-                <button 
+                <button
                   className="carousel-nav carousel-nav-left"
                   onClick={prevReview}
                   disabled={loading}
                 >
-                  <i className="fas fa-chevron-left"></i>
+                  <FaChevronLeft />
                 </button>
 
                 <div className="reviews-display">
@@ -199,7 +202,7 @@ const BrandsAndReviews = () => {
                               <div className="google-icon">
                                 <i className="fab fa-google"></i>
                               </div>
-                              
+
                               {/* Reviewer Info */}
                               <div className="reviewer-info">
                                 <div className="reviewer-avatar">
@@ -208,6 +211,26 @@ const BrandsAndReviews = () => {
                                 <div className="reviewer-details">
                                   <div className="reviewer-name">{review.author}</div>
                                   <div className="review-date">{review.date}</div>
+                                  <div className='ratingStars' style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <div style={{ display: 'flex', gap: '2px' }}>
+                                      {Array.from({ length: 5 }, (_, index) => (
+                                        index < Math.floor(review.rating) ? (
+                                          <FaStar
+                                            key={index}
+                                            style={{ color: '#ffc107', fontSize: '14px' }}
+                                          />
+                                        ) : (
+                                          <FaRegStar
+                                            key={index}
+                                            style={{ color: '#404040', fontSize: '14px' }}
+                                          />
+                                        )
+                                      ))}
+                                    </div>
+                                    <span style={{ color: '#4285F4', fontSize: '16px', fontWeight: '600' }}>
+                                      <MdVerified />
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
 
@@ -228,12 +251,12 @@ const BrandsAndReviews = () => {
                   )}
                 </div>
 
-                <button 
+                <button
                   className="carousel-nav carousel-nav-right"
                   onClick={nextReview}
                   disabled={loading}
                 >
-                  <i className="fas fa-chevron-right"></i>
+                  <FaChevronRight />
                 </button>
               </div>
             </div>

@@ -1,10 +1,10 @@
 /* brands&review.css */
 
 .brands-reviews-section {
-  background-color: #1a1a1a;
+  background-color:black;
   color: white;
-  padding: 60px 0;
-  min-height: 100vh;
+  padding: 0px 0;
+  min-height: 646px;
 }
 
 /* =========================== */
@@ -45,7 +45,7 @@
 .brand-box {
   background-color: #2a2a2a;
   border: 2px solid #404040;
-  border-radius: 12px;
+
   padding: 25px 35px;
   min-width: 140px;
   height: 100px;
@@ -219,9 +219,8 @@
   position: relative;
   width: 100%;
   height: 280px;
-  border: 2px solid #1d1d20;
-  border-radius: 8px;
-}
+  border: 1px solid black;
+  }
 
 /* Review Card Border with Cut Corners */
 .review-card-border {
@@ -230,7 +229,7 @@
   left: 2px;
   width: calc(100% - 4px);
   height: calc(100% - 4px);
-  background: linear-gradient(135deg, #6c5ce7, #a8e6cf, #74b9ff, #fd79a8);
+  background:#303036;
   clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
   z-index: 1;
 }
@@ -637,5 +636,80 @@
     font-size: 16px;
     top: 10px;
     right: 10px;
+  }
+}
+/* VECTOR SHAPES OF BRANDS */
+.brand-box {
+  position: relative;
+  background-color: #2a2a2a;
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  
+  /* Vector shape like AMD box - angled corners */
+    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+}
+
+.brand-box:hover {
+  background-color: #3a3a3a;
+  transform: translateY(-2px);
+}
+
+.brand-logo {
+  max-width: 120px;
+  max-height: 50px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.brand-box:hover .brand-logo {
+  filter: brightness(1.1);
+}
+
+/* Update responsive sizes */
+@media (max-width: 1200px) {
+  .brand-box {
+    width: 140px;
+    height: 70px;
+  }
+  
+  .brand-logo {
+    max-width: 100px;
+    max-height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-box {
+    width: 120px;
+    height: 60px;
+    /* Smaller angled cuts for mobile */
+    clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+  }
+  
+  .brand-logo {
+    max-width: 80px;
+    max-height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-box {
+    width: 100px;
+    height: 50px;
+    /* Even smaller angled cuts */
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  }
+  
+  .brand-logo {
+    max-width: 70px;
+    max-height: 30px;
   }
 }
